@@ -23,6 +23,18 @@ public class GreetingResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
+    @Path("/excuse")
+    public String excuse() {
+        try {
+            return service.excuse();
+        } catch (Exception exception) {
+            return "not today, " + exception.getMessage();
+        }
+    }
+
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
         return "hello";
     }
